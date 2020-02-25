@@ -1,4 +1,8 @@
 import time
+import sys
+sys.path.append('C:\\Git\\python-lambda\\Sprint-Challenge--Data-Structures-Python\\names')
+from binary_search_tree import BinarySearchTree
+
 
 start_time = time.time()
 
@@ -13,9 +17,13 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-for name in names_1:
-    if name in names_2:
-        duplicates.append(name)
+name1bst = BinarySearchTree('names1')
+for name1 in names_1:
+    name1bst.insert(name1)
+
+for name2 in names_2:
+    if name1bst.contains(name2):
+        duplicates.append(name2)
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
